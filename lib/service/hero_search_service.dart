@@ -15,7 +15,7 @@ class HeroSearchService {
   Future<List<Hero>> search(String term) async {
     final regExp = new RegExp(term, caseSensitive: false);
 
-    List<Hero> heroes = await _heroService.getHeroes();
+    List<Hero> heroes = _heroService.heroes;
     return heroes.where((hero) => hero.name.contains(regExp)).toList();
   }
 }
