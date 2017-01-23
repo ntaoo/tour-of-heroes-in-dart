@@ -11,7 +11,7 @@ import 'package:dart_tour_of_heroes/service/hero_service.dart';
     styleUrls: const ['dashboard_component.css'],
     directives: const [HeroSearchComponent, ROUTER_DIRECTIVES])
 class DashboardComponent {
-  List<Hero> get heroes => _heroService.heroes;
+  List<Hero> get heroes => _heroService.heroes.skip(1).take(4).toList();
   final HeroService _heroService;
 
   DashboardComponent(this._heroService);
