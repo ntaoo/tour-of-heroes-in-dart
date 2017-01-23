@@ -32,7 +32,7 @@ class HeroSearchComponent implements OnInit {
         .distinct()
         .transform(new FlatMapLatest((term) => term.isEmpty
             ? new Stream<List<Hero>>.fromIterable([<Hero>[]])
-            : new Future.value(() => _heroSearchService.search(term))
+            : new Future<List<Hero>>.sync(() => _heroSearchService.search(term))
                 .asStream()))
         .handleError((e) {
       print(e); // for demo purposes only
